@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-01 20:35+0100\n"
+"POT-Creation-Date: 2025-03-01 20:57+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,23 +19,23 @@ msgstr ""
 "(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-#: game/models.py:13
+#: game/models.py:15
 msgid "Opublikuj w galerii"
-msgstr ""
+msgstr "Opublikuj w galerii"
 
-#: game/models.py:14
+#: game/models.py:16
 msgid "Photo"
-msgstr ""
+msgstr "Zdjęcie"
 
-#: game/models.py:19
+#: game/models.py:25
 msgid "Task description"
 msgstr "Opis zadania"
 
-#: game/models.py:27
+#: game/models.py:33
 msgid "task"
 msgstr "zadanie"
 
-#: game/models.py:28 templates/dashboard.html:27
+#: game/models.py:34 templates/dashboard.html:27
 msgid "tasks"
 msgstr "zadania"
 
@@ -82,6 +82,26 @@ msgstr "Wyloguj"
 #: templates/dashboard.html:24
 msgid "Top 5 users with most tasks done:"
 msgstr "5 użytkowników z największą iloscią zrealizowanych zadań"
+
+#: templates/gallery.html:6
+msgid "Back to dashboard"
+msgstr "Powrót do menu głównego"
+
+#: templates/gallery.html:8
+msgid "No photos sent."
+msgstr "Brak wysłanych zdjęć."
+
+#: templates/gallery.html:16
+msgid "Task photo"
+msgstr "Opis zadania"
+
+#: templates/gallery.html:20
+msgid "VERIFIED"
+msgstr "ZWERYFIKOWANO PRZEZ KOLEGIUM"
+
+#: templates/gallery.html:22
+msgid "PENDING VERIFICATION"
+msgstr "OCZEKUJE NA WERYFIKACJĘ PRZEZ KOLEGIUM"
 
 #: templates/index.html:7
 msgid "Committees' Training 2025 - photo game"
@@ -130,9 +150,6 @@ msgstr "Powrót do menu głównego"
 
 #~ msgid "No uploaded photos"
 #~ msgstr "Brak zdjęć"
-
-#~ msgid "Task photo"
-#~ msgstr "Opis zadania"
 
 #~ msgid "Task description: "
 #~ msgstr "Opis zadania: s"

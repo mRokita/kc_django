@@ -1,10 +1,11 @@
 {% extends "_base.html" %}
+{% load i18n %}
 {% block main %}
   <div class="container">
     <h2>Galeria zdjęć</h2>
-    <a href="{% url "dashboard" %}" class="Button1">Powrót do menu głównego</a>
+    <a href="{% url "dashboard" %}" class="Button1">{% trans "Back to dashboard" %}</a>
     {% if not object_list %}
-    <p>Brak przesłanych zdjęć.</p>
+    <p>{% trans "No photos sent." %}</p>
     {% else %}
       {% for task in page_obj %}
         <div class="gallery">
@@ -12,9 +13,14 @@
             <a href="{{ task.completedtask.photo.url }}">
               <img loading="lazy"
                    src="{{ task.completedtask.photo.url }}"
-                   alt="Zdjęcie zadania"
+                   alt="{% trans "Task photo" %}
                    style="max-width: 80%;margin-left:10%;">
             </a>
+            {% if task.completedtask.task_verified %}
+            <p style="color:green;"><strong>{% trans "VERIFIED" %}</strong></p>
+            {% else %}
+            <p style="color:orange;"><strong>{% trans "PENDING VERIFICATION" %}</strong></p>
+            {% endif %}
             <p><strong>Opis zadania: {{ task.task.description }}</strong></p>
             <p><strong>Autor: {{ task.user }}, {{ task.completedtask.date_completed }}</strong></p>
           </div>

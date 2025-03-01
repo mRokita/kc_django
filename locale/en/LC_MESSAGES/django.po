@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-01 20:35+0100\n"
+"POT-Creation-Date: 2025-03-01 20:57+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,23 +17,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: game/models.py:13
+#: game/models.py:15
 msgid "Opublikuj w galerii"
 msgstr ""
 
-#: game/models.py:14
+#: game/models.py:16
 msgid "Photo"
 msgstr ""
 
-#: game/models.py:19
+#: game/models.py:25
 msgid "Task description"
 msgstr ""
 
-#: game/models.py:27
+#: game/models.py:33
 msgid "task"
 msgstr ""
 
-#: game/models.py:28 templates/dashboard.html:27
+#: game/models.py:34 templates/dashboard.html:27
 msgid "tasks"
 msgstr ""
 
@@ -79,6 +79,26 @@ msgstr ""
 
 #: templates/dashboard.html:24
 msgid "Top 5 users with most tasks done:"
+msgstr ""
+
+#: templates/gallery.html:6
+msgid "Back to dashboard"
+msgstr ""
+
+#: templates/gallery.html:8
+msgid "No photos sent."
+msgstr ""
+
+#: templates/gallery.html:16
+msgid "Task photo"
+msgstr ""
+
+#: templates/gallery.html:20
+msgid "VERIFIED"
+msgstr ""
+
+#: templates/gallery.html:22
+msgid "PENDING VERIFICATION"
 msgstr ""
 
 #: templates/index.html:7
