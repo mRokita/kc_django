@@ -26,7 +26,7 @@
   {% if completed_tasks  %}
   <h2>{% trans "Realized tasks" %}</h2>
     {% for task in completed_tasks %}
-      <div class="task_item" style="background-color:#6eceb2;color:#1d1f2a;">
+      <div class="task_item" style="background-color:#6eceb2;color:#1d1f2a;margin-bottom:10px;">
         <span class="task_item_meat">
           <p><strong>{{ task.task.description }}</strong></p>
         </span>
