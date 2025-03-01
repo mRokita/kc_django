@@ -1,8 +1,20 @@
-<div style="background-color:pink;">
+{% load static %}
+<head>
+  <title></title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<div class="container">
+  <h2>Logowanie</h2>
   <form method="post">
     {% csrf_token %}
     {{ form }}
     <button type="submit">Wyślij</button>
   </form>
+</div>
+<div class="loga">
+  <img id="sspg_logo_bottom"
+       src="{% static 'graphics/02_LOGOSSPW_WYPEŁNIENIE-PODSTAWOWE_RGB_RASTER.png' %}" alt="Logo SSPG">
 
 </div>
+</body>

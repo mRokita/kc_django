@@ -1,0 +1,280 @@
+/* 
+#dcdcdc - Light Gray
+#C85028 - Dark Orange
+#ff9425 - Blue
+
+
+
+*/
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 50px auto;
+    min-width: 300px;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
+}
+
+input[type="text"], input[type="password"], input[type="file"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+}
+
+.errorlist {
+    background: #d61711;
+    color: white;
+    padding: 20px;
+    margin: 5px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #ff9425;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+a {
+    display: block;
+    margin: 10px 0;
+    color: #ff9425;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.flash-message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.flash-message.negative {
+    background-color: #ffdddd;
+    color: #a94442;
+    border: 1px solid #a94442;
+}
+
+.flash-message.positive {
+    background-color: #ddffdd;
+    color: #3c763d;
+    border: 1px solid #3c763d;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.gallery-item {
+    flex: 1 1 calc(33.333% - 10px);
+    box-sizing: border-box;
+    background-color: #dcdcdc;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.task_item {
+    flex: 1 1 calc(100% - 10px);
+    box-sizing: border-box;
+    background-color: #dcdcdc;
+    border-radius: 4px;
+}
+
+.task_item_meat{
+    padding: 15px;
+    margin: 15px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.loga {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #dcdcdc;
+    color: #ffffff;
+}
+
+#sspg_logo_bottom {
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    height: 100px;
+}
+
+#fut_logo_bottom {
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    height: 65px;
+}
+
+
+.Button1 {
+	background-color:#ff9425;
+	border-radius:28px;
+	border:1px solid #C85028;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #C85028;
+    width: 80%;
+    max-width: 300px;
+}
+
+.Button2 {
+    background-color:#ff9425;
+    border-radius:28px;
+    border:2px solid #C85028;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:12px;
+    padding:8px 12px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #C85028;
+    max-width: 100px;
+    text-decoration: none;
+    margin: auto;
+
+}
+.Button2Active {
+    background-color:#ffffff;
+    border-radius:28px;
+    border:2px solid #C85028;
+    display:inline-block;
+    cursor:pointer;
+    color:#ff9425;
+    font-family:Arial;
+    font-size:12px;
+    padding:8px 12px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #C85028;
+    max-width: 100px;
+    text-decoration: none;
+    margin: auto;
+}
+
+.Button2:hover{
+    background-color:#dcdcdc;
+    text-decoration: none;
+    color:#C85028
+}
+.Button2Active:hover {
+    background-color:#dcdcdc;
+    text-decoration: none;
+}
+
+.Button1:hover {
+	background-color:#dcdcdc;
+    color:#C85028;
+    text-decoration: none;
+    
+}
+.Button1:active {
+	position:relative;
+	top:1px;
+}
+
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+/* .pagination a {
+    margin: 0 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.pagination a.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+} */
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 500px) {
+    .container {
+        padding: 15px;
+        margin: 10px auto;
+        max-width: 100%;
+        font-size: large;
+        border-radius: 0;
+        box-shadow: none;
+        bottom: 100px;
+    }
+
+    input[type="text"], input[type="password"], input[type="file"] {
+        width: 80%;
+        padding: 16px;
+        margin: 16px 0;
+        font-size: large;
+        height: 1.5em;
+    }
+
+    button {
+        width: 80%;
+        padding: 16px;
+        font-size: large;
+    }
+
+    .flash-message {
+        padding: 12px;
+        margin-bottom: 10px;
+        font-size: large;
+    }
+}
