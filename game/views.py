@@ -59,7 +59,6 @@ class AllPhotosView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return super().get_queryset().filter(
-            user=self.request.user,
             completedtask__is_public=True
         ).select_related("user", "completedtask")
 
