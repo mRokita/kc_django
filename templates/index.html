@@ -1,0 +1,12 @@
+{% extends "_base.html" %}
+{% load static %}
+{% block main %}
+  <div class="container">
+    <img src="{% static "graphics/476663297_639777108738543_8291091253138925484_n.png" %}" alt="Logo" style="max-width: 50%;">
+    <h1>Szkolenie Komisji 2025 - gra fotograficzna</h1>
+    <p>Witaj, wylosuj zadania, rób zdjęcia i baw się dobrze</p>
+    <a href="{% url "signup" %}" class="Button1">Rejestracja</a>
+    <a href="{% url "login" %}" class="Button1">Logowanie</a>
+  </div>
+
+{% endblock %}

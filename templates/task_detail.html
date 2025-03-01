@@ -1,0 +1,11 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% block main %}
+  <div class="container">
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form }}
+      <button type="submit" name="upload_photo" class="Button1">{% trans "Prześlij zdjęcie" %}</button>
+    </form>
+  </div>
+{% endblock %}

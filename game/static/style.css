@@ -33,7 +33,7 @@ body {
 }
 
 input[type="text"], input[type="password"], input[type="file"] {
-    width: 80%;
+    
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
@@ -153,6 +153,7 @@ a:hover {
 	background-color:#ff9425;
 	border-radius:28px;
 	border:1px solid #C85028;
+    box-sizing: border-box;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -161,8 +162,31 @@ a:hover {
 	padding:16px 31px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #C85028;
-    width: 80%;
+    width: 100%;
     max-width: 300px;
+}
+
+.ButtonLogout {
+    width: 100%;
+    margin-top: 8px;
+	background-color: #ff5869;
+	border-radius:28px;
+	border:1px solid #fa3247;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ff5869;
+    max-width: 300px;
+}
+
+.ButtonLogout:hover{
+    background-color:#dcdcdc;
+    text-decoration: none;
+    color: #ff6374
 }
 
 .Button2 {
@@ -259,7 +283,7 @@ a:hover {
     }
 
     input[type="text"], input[type="password"], input[type="file"] {
-        width: 80%;
+        
         padding: 16px;
         margin: 16px 0;
         font-size: large;
@@ -267,7 +291,7 @@ a:hover {
     }
 
     button {
-        width: 80%;
+        
         padding: 16px;
         font-size: large;
     }

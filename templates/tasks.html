@@ -1,0 +1,39 @@
+{% extends "_base.html" %}
+
+{% block main %}
+<div class="container">
+  <form method="post" action="{% url "dashboard" %}">
+    {% if draw_error %}
+    <div class="errorlist">
+      {{ draw_error }}
+    </div>
+    {% endif %}
+    {% csrf_token %}
+    <button type="submit" class="Button1">Losuj zadanie</button>
+  </form>
+  <h2>Twoje oczekujące zadania</h2>
+  {% if not object_list %}
+  <p>Nie masz przypisanych zadań.</p>
+  {% else %}
+    {% for task in object_list %}
+      <div class="task_item">
+        <a href="{% url "tasks_detail" task.id %}" class="task_item_meat">
+          <p><strong>{{ task.task.description }}</strong></p>
+        </a>
+      </div>
+    {% endfor %}
+  {% endif %}
+  {% if completed_tasks  %}
+  <h2>Zrealizowane zadania</h2>
+    {% for task in completed_tasks %}
+      <div class="task_item" style="background-color:#6eceb2;color:#1d1f2a;">
+        <span class="task_item_meat">
+          <p><strong>{{ task.task.description }}</strong></p>
+        </span>
+      </div>
+    {% endfor %}
+  {% endif %}
+  <a href="{% url "dashboard" %}" class="Button1">Powrót do menu głównego</a>
+
+</div>
+{% endblock %}
