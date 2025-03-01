@@ -6,8 +6,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.db import transaction
 from django.db.models import F, Count
-from django.http.response import HttpResponseRedirect
-from django.urls import reverse_lazy
+from django.http.response import HttpResponseRedirect, Http404
+from django.shortcuts import redirect
+from django.urls import reverse_lazy, reverse
 from django.utils.translation import gettext_lazy as _
 from django.views import generic
 from django.views.generic import TemplateView
@@ -29,7 +30,7 @@ class TaskListView(LoginRequiredMixin, generic.ListView):
     def get_queryset(self):
         return super().get_queryset().filter(
             user=self.request.user,
-            completedtask=None)
+            completedtask=None).order_by("-id")
 
     def get_context_data(self, *args, **kwargs):
         ctx = super().get_context_data(*args, **kwargs)
@@ -46,28 +47,34 @@ class CompletedTaskForm(forms.ModelForm):
 class MyPhotosView(LoginRequiredMixin, generic.ListView):
     model = UserTask
     template_name = "gallery.html"
-    paginate_by = 100
+    paginate_by = 20
 
     def get_queryset(self):
         return super().get_queryset().filter(
             user=self.request.user
-        ).exclude(completedtask=None).select_related("user", "completedtask")
+        ).order_by("-completedtask__date_completed").exclude(completedtask=None).select_related("user", "completedtask")
 
 class AllPhotosView(LoginRequiredMixin, generic.ListView):
     model = UserTask
     template_name = "gallery.html"
-    paginate_by = 100
+    paginate_by = 20
 
     def get_queryset(self):
         return super().get_queryset().filter(
             completedtask__is_public=True
-        ).select_related("user", "completedtask")
+        ).select_related("user", "completedtask").order_by("-completedtask__date_completed")
 
 class TaskDetailView(LoginRequiredMixin, FormMixin, generic.DetailView):
     model = UserTask
     form_class = CompletedTaskForm
     template_name = "task_detail.html"
     success_url = reverse_lazy("tasks")
+
+    def get(self, request, *args, **kwargs):
+        try:
+            return super().get(request, *args, **kwargs)
+        except Http404:
+            return redirect(reverse("tasks"))
 
     def get_queryset(self):
         return self.request.user.usertask_set.filter(completedtask=None)
