@@ -97,7 +97,7 @@ class DashboardView(LoginRequiredMixin, generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx["leaderboard"] = CompletedTask.objects.filter(task_verified=False).select_related(
+        ctx["leaderboard"] = CompletedTask.objects.filter(task_verified=True).select_related(
             "usertask").annotate(
             username=F("user_task__user__username")).values("username").annotate(
             count=Count("id")
