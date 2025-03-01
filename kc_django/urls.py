@@ -18,7 +18,10 @@ from django.contrib import admin
 from django.contrib.auth import urls
 from django.urls import path, include
 
+from game import views
+
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("accounts/", include("django.contrib.auth.urls"))
+    path("accounts/", include("django.contrib.auth.urls")),
+    path("accounts/signup/<int:req_id>", views.signup, name="signup"),
 ]
