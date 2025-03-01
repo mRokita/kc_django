@@ -18,6 +18,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
   django:
     environment:
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS}
       STATIC_ROOT: /static
       MEDIA_ROOT: /media
       SECRET_KEY: ${DJANGO_SECRET}
