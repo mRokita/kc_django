@@ -129,3 +129,5 @@ LANGUAGES = (
     ('pl', gettext('Polish')),
     ('en', gettext('English')),
 )
+
+LOCALE_PATHS = [BASE_DIR / "locale"]

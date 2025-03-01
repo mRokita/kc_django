@@ -1,0 +1,19 @@
+{% load i18n %}
+{% load static %}
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+{% block main %}
+{% endblock %}
+
+<div class="loga">
+
+  {% block footer %}
+    <img id="sspg_logo_bottom"
+         src="{% static 'graphics/02_LOGOSSPW_WYPEŁNIENIE-PODSTAWOWE_RGB_RASTER.png' %}" alt="Logo SSPG">
+
+  {% endblock footer %}
+</div>
+</body>

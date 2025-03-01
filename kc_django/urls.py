@@ -23,5 +23,5 @@ from game import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls")),
-    path("accounts/signup/<int:req_id>", views.signup, name="signup"),
+    path("accounts/signup/", views.SignUpView.as_view(), name="signup"),
 ]
