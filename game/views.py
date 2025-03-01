@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.db import transaction
+from django.db.models import F, Count
 from django.http.response import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
@@ -86,6 +87,16 @@ class TaskDetailView(LoginRequiredMixin, FormMixin, generic.DetailView):
 
 class DashboardView(LoginRequiredMixin, generic.TemplateView):
     template_name = "dashboard.html"
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx["leaderboard"] = CompletedTask.objects.filter(task_verified=False).select_related(
+            "usertask").annotate(
+            username=F("user_task__user__username")).values("username").annotate(
+            count=Count("id")
+        ).filter(count__gt=0).order_by("-count")[:3]
+        return ctx
+
 
     @transaction.atomic
     def post(self, request, *args, **kwargs):

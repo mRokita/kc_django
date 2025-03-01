@@ -19,6 +19,16 @@
           {% csrf_token %}
           <button type="submit" class="ButtonLogout">{% trans "Log out" %}</button>
         </form>
+        <h3>Leaderboard</h3>
+        {% if leaderboard %}
+        <ol>
+        {% for leader in leaderboard %}
+          <li>{{ leader.username }} ({{ leader.count }})</li>
+        {% endfor %}
+        </ol>
+        {% else %}
+          Brak wysłanych zdjęć.
+        {% endif %}
         <!--
         <?php if ($user_id == 6 && !empty($top_users)): ?>
             <h3>{% trans "Top 5 users with most tasks done:" %}</h3>
