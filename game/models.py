@@ -8,3 +8,7 @@ class Task(models.Model):
 
     def __str__(self) -> str:
         return self.description
+
+    class Meta:
+        verbose_name = _("task")
+        verbose_name_plural = _("tasks")
