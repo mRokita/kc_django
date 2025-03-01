@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-01 14:06+0100\n"
+"POT-Creation-Date: 2025-03-01 18:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,27 +20,118 @@ msgstr ""
 "(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-#: game/models.py:6
+#: game/models.py:13
+msgid "Opublikuj w galerii"
+msgstr ""
+
+#: game/models.py:14
+msgid "Photo"
+msgstr ""
+
+#: game/models.py:19
 msgid "Task description"
 msgstr "Opis zadania"
 
-#: game/models.py:13
+#: game/models.py:27
 msgid "task"
 msgstr "zadanie"
 
-#: game/models.py:14
+#: game/models.py:28 templates/dashboard.html:26
 msgid "tasks"
 msgstr "zadania"
 
-#: kc_django/settings.py:129
+#: game/views.py:96
+msgid "User already has 5 incomplete tasks"
+msgstr ""
+
+#: game/views.py:106
+msgid "There are no more tasks available."
+msgstr "Nie ma więcej dostępnych zadań"
+
+#: kc_django/settings.py:122
 msgid "Polish"
 msgstr "polski"
 
-#: kc_django/settings.py:130
+#: kc_django/settings.py:123
 msgid "English"
 msgstr "angielski"
 
-#: templates/registration/login.html:5 templates/registration/login.html:9
+#: templates/dashboard.html:4
+msgid "Hello,"
+msgstr "Witak,"
+
+#: templates/dashboard.html:12 templates/tasks.html:12
+#, fuzzy
+#| msgid "task"
+msgid "Draw task"
+msgstr "Losuj zadanie"
+
+#: templates/dashboard.html:14
+msgid "Active tasks"
+msgstr "Aktywne zadania"
+
+#: templates/dashboard.html:15
+msgid "My photos"
+msgstr "Moje zdjecia"
+
+#: templates/dashboard.html:16
+msgid "Photo Gallery"
+msgstr "Galeria zdjęć"
+
+#: templates/dashboard.html:19
+msgid "Log out"
+msgstr "Wyloguj"
+
+#: templates/dashboard.html:23
+msgid "Top 5 users with most tasks done:"
+msgstr "5 użytkowników z największą iloscią zrealizowanych zadań"
+
+#: templates/gallery.html:5 templates/gallery.html:44 templates/tasks.html:36
+msgid "Back to main menu"
+msgstr "Powrót do menu głównego"
+
+#: templates/gallery.html:7
+msgid "No uploaded photos"
+msgstr "Brak zdjęć"
+
+#: templates/gallery.html:15
+#, fuzzy
+#| msgid "Task description"
+msgid "Task photo"
+msgstr "Opis zadania"
+
+#: templates/gallery.html:18
+#, fuzzy
+#| msgid "Task description"
+msgid "Task description: "
+msgstr "Opis zadania: s"
+
+#: templates/gallery.html:20
+msgid "Author: "
+msgstr "Autor: "
+
+#: templates/gallery.html:28
+msgid "Previous"
+msgstr "Poprzedni"
+
+#: templates/gallery.html:41
+msgid "Next"
+msgstr "Następny"
+
+#: templates/index.html:6
+msgid "Committees' Training 2025 - phot game"
+msgstr "Szkolenie Komisji 2025 - gra fotograficzna"
+
+#: templates/index.html:7
+msgid "Hello, draw tasks, make photos and have fun"
+msgstr "Czesć, losuj zadania, rób zdjecia i baw się dobrze :D"
+
+#: templates/index.html:8
+msgid "Registration"
+msgstr "Rejestracja"
+
+#: templates/index.html:9 templates/registration/login.html:5
+#: templates/registration/login.html:9
 msgid "Login"
 msgstr "Zaloguj"
 
@@ -50,4 +141,20 @@ msgstr "Rejestracja"
 
 #: templates/registration/signup.html:9
 msgid "Submit"
-msgstr ""
+msgstr "Zarejestruj"
+
+#: templates/task_detail.html:8
+msgid "Send photo"
+msgstr "Wyslij zdjecie"
+
+#: templates/tasks.html:14
+msgid "Your pending tasks"
+msgstr "Twoje zadania oczekujące"
+
+#: templates/tasks.html:16
+msgid "You don't have any tasks assigned."
+msgstr "Nie masz żadnych zadań"
+
+#: templates/tasks.html:27
+msgid "Realized tasks"
+msgstr "Zrealizowane zadania"

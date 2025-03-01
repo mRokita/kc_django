@@ -5,7 +5,7 @@
     <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       {{ form }}
-      <button type="submit" name="upload_photo" class="Button1">{% trans "Prześlij zdjęcie" %}</button>
+      <button type="submit" name="upload_photo" class="Button1">{% trans "Send photo" %}</button>
     </form>
   </div>
 {% endblock %}

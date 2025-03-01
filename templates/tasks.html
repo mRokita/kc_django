@@ -9,11 +9,11 @@
     </div>
     {% endif %}
     {% csrf_token %}
-    <button type="submit" class="Button1">Losuj zadanie</button>
+    <button type="submit" class="Button1">{% trans "Draw task" %}</button>
   </form>
-  <h2>Twoje oczekujące zadania</h2>
+  <h2>{% trans "Your pending tasks" %}</h2>
   {% if not object_list %}
-  <p>Nie masz przypisanych zadań.</p>
+  <p>{% trans "You don't have any tasks assigned." %}</p>
   {% else %}
     {% for task in object_list %}
       <div class="task_item">
@@ -24,7 +24,7 @@
     {% endfor %}
   {% endif %}
   {% if completed_tasks  %}
-  <h2>Zrealizowane zadania</h2>
+  <h2>{% trans "Realized tasks" %}</h2>
     {% for task in completed_tasks %}
       <div class="task_item" style="background-color:#6eceb2;color:#1d1f2a;">
         <span class="task_item_meat">
@@ -33,7 +33,7 @@
       </div>
     {% endfor %}
   {% endif %}
-  <a href="{% url "dashboard" %}" class="Button1">Powrót do menu głównego</a>
+  <a href="{% url "dashboard" %}" class="Button1">{% trans "Back to main menu" %}</a>
 
 </div>
 {% endblock %}

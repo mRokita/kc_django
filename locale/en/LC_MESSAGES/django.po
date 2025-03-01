@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-01 14:06+0100\n"
+"POT-Creation-Date: 2025-03-01 18:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,27 +18,112 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: game/models.py:6
-msgid "Task description"
-msgstr ""
-
 #: game/models.py:13
-msgid "task"
+msgid "Opublikuj w galerii"
 msgstr ""
 
 #: game/models.py:14
+msgid "Photo"
+msgstr ""
+
+#: game/models.py:19
+msgid "Task description"
+msgstr ""
+
+#: game/models.py:27
+msgid "task"
+msgstr ""
+
+#: game/models.py:28 templates/dashboard.html:26
 msgid "tasks"
 msgstr ""
 
-#: kc_django/settings.py:129
+#: game/views.py:96
+msgid "User already has 5 incomplete tasks"
+msgstr ""
+
+#: game/views.py:106
+msgid "There are no more tasks available."
+msgstr ""
+
+#: kc_django/settings.py:122
 msgid "Polish"
 msgstr ""
 
-#: kc_django/settings.py:130
+#: kc_django/settings.py:123
 msgid "English"
 msgstr ""
 
-#: templates/registration/login.html:5 templates/registration/login.html:9
+#: templates/dashboard.html:4
+msgid "Hello,"
+msgstr ""
+
+#: templates/dashboard.html:12 templates/tasks.html:12
+msgid "Draw task"
+msgstr ""
+
+#: templates/dashboard.html:14
+msgid "Active tasks"
+msgstr ""
+
+#: templates/dashboard.html:15
+msgid "My photos"
+msgstr ""
+
+#: templates/dashboard.html:16
+msgid "Photo Gallery"
+msgstr ""
+
+#: templates/dashboard.html:19
+msgid "Log out"
+msgstr ""
+
+#: templates/dashboard.html:23
+msgid "Top 5 users with most tasks done:"
+msgstr ""
+
+#: templates/gallery.html:5 templates/gallery.html:44 templates/tasks.html:36
+msgid "Back to main menu"
+msgstr ""
+
+#: templates/gallery.html:7
+msgid "No uploaded photos"
+msgstr ""
+
+#: templates/gallery.html:15
+msgid "Task photo"
+msgstr ""
+
+#: templates/gallery.html:18
+msgid "Task description: "
+msgstr ""
+
+#: templates/gallery.html:20
+msgid "Author: "
+msgstr ""
+
+#: templates/gallery.html:28
+msgid "Previous"
+msgstr ""
+
+#: templates/gallery.html:41
+msgid "Next"
+msgstr ""
+
+#: templates/index.html:6
+msgid "Committees' Training 2025 - phot game"
+msgstr ""
+
+#: templates/index.html:7
+msgid "Hello, draw tasks, make photos and have fun"
+msgstr ""
+
+#: templates/index.html:8
+msgid "Registration"
+msgstr ""
+
+#: templates/index.html:9 templates/registration/login.html:5
+#: templates/registration/login.html:9
 msgid "Login"
 msgstr ""
 
@@ -48,4 +133,20 @@ msgstr ""
 
 #: templates/registration/signup.html:9
 msgid "Submit"
+msgstr ""
+
+#: templates/task_detail.html:8
+msgid "Send photo"
+msgstr ""
+
+#: templates/tasks.html:14
+msgid "Your pending tasks"
+msgstr ""
+
+#: templates/tasks.html:16
+msgid "You don't have any tasks assigned."
+msgstr ""
+
+#: templates/tasks.html:27
+msgid "Realized tasks"
 msgstr ""
