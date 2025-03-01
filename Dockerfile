@@ -10,4 +10,4 @@ RUN uv sync --no-dev --frozen --no-editable
 
 COPY . /project
 
-CMD ./manage.py migrate && gunicorn kc_django.wsgi --forwarded-allow-ips="*" --access-logfile - -b 0.0.0.0:80
+CMD ./manage.py collectstatic --no-input && ./manage.py migrate && gunicorn kc_django.wsgi --forwarded-allow-ips="*" --access-logfile - -b 0.0.0.0:80
