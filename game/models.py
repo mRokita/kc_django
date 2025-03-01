@@ -5,3 +5,6 @@ class Task(models.Model):
     description: str = models.TextField(
         verbose_name=_("Task description")
     )
+
+    def __str__(self) -> str:
+        return self.description
