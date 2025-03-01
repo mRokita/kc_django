@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -58,11 +57,9 @@ msgstr "angielski"
 
 #: templates/dashboard.html:4
 msgid "Hello,"
-msgstr "Witak,"
+msgstr "Witaj,"
 
 #: templates/dashboard.html:12 templates/tasks.html:12
-#, fuzzy
-#| msgid "task"
 msgid "Draw task"
 msgstr "Losuj zadanie"
 
@@ -95,14 +92,10 @@ msgid "No uploaded photos"
 msgstr "Brak zdjęć"
 
 #: templates/gallery.html:15
-#, fuzzy
-#| msgid "Task description"
 msgid "Task photo"
 msgstr "Opis zadania"
 
 #: templates/gallery.html:18
-#, fuzzy
-#| msgid "Task description"
 msgid "Task description: "
 msgstr "Opis zadania: s"
 
