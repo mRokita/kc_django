@@ -1,20 +1,23 @@
 {% extends "_base.html" %}
 {% load i18n %}
+{% load custom_filters %}
+
 {% block main %}
-  <div class="container">
+<div class="container">
     <h2>Galeria zdjęć</h2>
     <a href="{% url "dashboard" %}" class="Button1">{% trans "Back to dashboard" %}</a>
     {% if not object_list %}
     <p>{% trans "No photos sent." %}</p>
     {% else %}
-      {% for task in page_obj %}
-        <div class="gallery">
-          <div class="gallery-item" style="justify-content: center;">
+    {% endif %}
+    {% for task in page_obj %}
+    <div class="gallery">
+        <div class="gallery-item" style="justify-content: center;">
             <a href="{{ task.completedtask.photo.url }}">
-              <img loading="lazy"
-                   src="{{ task.completedtask.photo.url }}"
-                   alt="{% trans "Task photo" %}
-                   style="max-width: 80%;margin-left:10%;">
+                <img loading="lazy"
+                     src="{{ task.completedtask.photo.url }}"
+                     alt="{% trans "Task photo" %}"
+                     style="max-width: 80%;margin-left:10%;">
             </a>
             {% if task.completedtask.task_verified %}
             <p style="color:green;"><strong>{% trans "VERIFIED" %}</strong></p>
@@ -22,29 +25,112 @@
             <p style="color:orange;"><strong>{% trans "PENDING VERIFICATION" %}</strong></p>
             {% endif %}
             <p><strong>Opis zadania: {{ task.task.description }}</strong></p>
-            <p><strong>Autor: {{ task.user }}, {{ task.completedtask.date_completed }}</strong></p>
-          </div>
+
+	    <p><strong>Autor: <span style="line-break: anywhere;">{{ task.user }}</span>, {{ task.completedtask.date_completed }}</strong></p>
+            <!-- Panel z emotkami -->
+            <div class="emoji-panel" data-task-id="{{ task.completedtask.id }}">
+                <h3>Zareaguj:</h3>
+                <form method="post" class="emoji-buttons">
+                    {% csrf_token %}
+                    {% for emoji in EMOJI_CHOICES %}
+                    {% with count=task.emoji_stats|get_item:emoji|default:0 %}
+                    <button type="button"
+                            class="emoji-button"
+                            data-emoji="{{ emoji }}"
+                            data-task-id="{{ task.completedtask.id }}"
+                            data-count="{{ count }}">
+                        {{ emoji }}
+                        <span class="emoji-count">{{ count }}</span>
+                    </button>
+                    {% endwith %}
+                    {% endfor %}
+                </form>
+            </div>
         </div>
-      {% endfor %}
-    {% endif %}
+    </div>
+    {% endfor %}
     <div class="pagination">
         {% if page_obj.has_previous %}
-            <a class="Button2" href="?page={{ page_obj.previous_page_number }}">Poprzednia</a>
+        <a class="Button2" href="?page={{ page_obj.previous_page_number }}">Poprzednia</a>
         {% endif %}
 
-
-      {% for page_num in page_obj.paginator.page_range %}
-        {% if page_obj.number ==  page_num %}
+        {% for page_num in page_obj.paginator.page_range %}
+        {% if page_obj.number == page_num %}
         <a class="Button2Active" href="?page={{ page_num }}">{{ page_num }}</a>
         {% else %}
         <a class="Button2" href="?page={{ page_num }}">{{ page_num }}</a>
         {% endif %}
-      {% endfor %}
+        {% endfor %}
 
-      {% if page_obj.has_next %}
+        {% if page_obj.has_next %}
         <a href="?page={{ page_obj.next_page_number }}" class="Button2">Następna</a>
-      {% endif %}
+        {% endif %}
     </div>
     <a href="{% url "dashboard" %}" class="Button1">Powrót do menu głównego</a>
-  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const emojiPanels = document.querySelectorAll('.emoji-panel');
+    const currentPage = window.location.pathname.includes('my-photos') ? 'my-photos' : 'all-photos';
+
+    emojiPanels.forEach(panel => {
+        const taskId = panel.getAttribute('data-task-id');
+        const buttons = panel.querySelectorAll('.emoji-button');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                const emoji = this.getAttribute('data-emoji');
+                const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+                fetch(`/task/${taskId}/add_reaction/${currentPage}/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrfToken
+                    },
+                    body: JSON.stringify({ emoji: emoji })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Get all emoji buttons for this specific task
+                        const taskButtons = panel.querySelectorAll('.emoji-button');
+
+                        // Reset all counts to match the returned stats
+                        taskButtons.forEach(btn => {
+                            const btnEmoji = btn.getAttribute('data-emoji');
+                            // Find this emoji in the returned stats
+                            const stat = data.stats.find(s => s.emoji === btnEmoji);
+                            const countSpan = btn.querySelector('.emoji-count');
+
+                            if (stat) {
+                                // Update with new count if emoji is in stats
+                                countSpan.textContent = stat.count;
+                                btn.setAttribute('data-count', stat.count);
+                            } else {
+                                // Reset to zero if emoji not in stats
+                                countSpan.textContent = '0';
+                                btn.setAttribute('data-count', '0');
+                            }
+                        });
+
+                        // Remove 'selected' class from all buttons in this panel
+                        taskButtons.forEach(btn => btn.classList.remove('selected'));
+                        // Add 'selected' class to the clicked button
+                        this.classList.add('selected');
+                    } else {
+                        console.error('Error:', data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Fetch error:', error);
+                });
+            });
+        });
+    });
+});
+</script>
 {% endblock %}
+
