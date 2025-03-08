@@ -25,8 +25,8 @@
             <p style="color:orange;"><strong>{% trans "PENDING VERIFICATION" %}</strong></p>
             {% endif %}
             <p><strong>Opis zadania: {{ task.task.description }}</strong></p>
-            <p><strong>Autor: {{ task.user }}, {{ task.completedtask.date_completed }}</strong></p>
 
+	    <p><strong>Autor: <span style="line-break: anywhere;">{{ task.user }}</span>, {{ task.completedtask.date_completed }}</strong></p>
             <!-- Panel z emotkami -->
             <div class="emoji-panel" data-task-id="{{ task.completedtask.id }}">
                 <h3>Zareaguj:</h3>
@@ -133,3 +133,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 {% endblock %}
+

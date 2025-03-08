@@ -2,7 +2,7 @@
 {% load i18n %}
 {% block main %}
 <div class="container">
-        <h2>{% trans "Hello," %} {{ user.username }}</h2>
+        <h2 style="line-break: anywhere;">{% trans "Hello," %} {{ user.username }}</h2>
         <form method="post">
           {% if draw_error %}
           <div class="errorlist">
@@ -23,21 +23,11 @@
         {% if leaderboard %}
         <ol>
         {% for leader in leaderboard %}
-          <li>{{ leader.username }} ({{ leader.count }})</li>
+          <li style="line-break: anywhere;">{{ leader.username }} ({{ leader.count }})</li>
         {% endfor %}
         </ol>
         {% else %}
           Brak wysłanych zdjęć.
         {% endif %}
-        <!--
-        <?php if ($user_id == 6 && !empty($top_users)): ?>
-            <h3>{% trans "Top 5 users with most tasks done:" %}</h3>
-            <ul>
-                <?php foreach ($top_users as $user): ?>
-                    <li><?php echo htmlspecialchars($user['username']); ?> - <?php echo htmlspecialchars($user['completed_count']); ?> {% trans "tasks" %}</li>
-                <?php endforeach; ?>
-            </ul>
-        <?php endif; ?> -->
-
     </div>
 {% endblock %}
