@@ -302,3 +302,37 @@ a:hover {
         font-size: large;
     }
 }
+
+.emoji-panel {
+    margin-top: 10px;
+}
+
+.emoji-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.emoji-button {
+    font-size: 1.5em;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.emoji-button:hover {
+    background-color: #f0f0f0;
+}
+
+.emoji-count {
+    font-size: 0.8em;
+    color: #666;
+}
+
+.remove-reaction {
+    margin-top: 10px;
+}

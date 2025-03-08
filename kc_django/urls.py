@@ -31,4 +31,8 @@ urlpatterns = [
     path("all-photos/", views.AllPhotosView.as_view(), name="all-photos"),
     path("tasks/", views.TaskListView.as_view(), name="tasks"),
     path("", views.IndexView.as_view(), name="index"),
+    path('task/<int:task_id>/add_reaction/<str:source>/', views.add_emoji_reaction,
+                       name='add_emoji_reaction'),
+    path('task/<int:task_id>/delete_reaction/<str:source>/', views.delete_emoji_reaction,
+                       name='delete_emoji_reaction'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
